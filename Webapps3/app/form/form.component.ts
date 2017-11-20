@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Headers } from "@angular/http";
@@ -12,6 +12,7 @@ import { Enquiry } from "./enquiry";
 export class FormComponent {
 
     skjema: FormGroup;
+    bekreftelse: string;
 
     constructor(private _http: Http, private fb: FormBuilder) {
         this.skjema = fb.group({
@@ -22,17 +23,33 @@ export class FormComponent {
             question: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{10,500}")])]
         });
     }
+    ngOnInit() {
+    }
 
     vedSubmit() {
 
-        this.lagreFaq();
+        this.lagreSpm();
     }
 
-    lagreFaq() {
+    bekreft() {
+
+        this.skjema.setValue({
+            name: "",
+            surname: "",
+            email: "",
+            question: ""
+        });
+
+        this.bekreftelse = "Spørsmålet er sendt til kundeservice!";
+    }
+
+    lagreSpm() {
         var savedEnquiry = new Enquiry();
 
-        savedEnquiry.name = this.skjema.value.fornavn;
-        savedEnquiry.surname = this.skjema.value.etternavn;
+        savedEnquiry.name = this.skjema.value.name;
+        savedEnquiry.surname = this.skjema.value.surname;
+        savedEnquiry.email = this.skjema.value.email;
+        savedEnquiry.question = this.skjema.value.question;
 
         var body: string = JSON.stringify(savedEnquiry);
         var headers = new Headers({ "Content-Type": "application/json" });
@@ -41,11 +58,12 @@ export class FormComponent {
             .map(returData => returData.toString())
             .subscribe(
             retur => {
-                //Vis alle manuell lagt inn spørsmål!
+                this.bekreft();
             },
             error => alert(error),
             () => console.log("ferdig post-api/kunde")
-            );
+        );
+
     };
 
 }

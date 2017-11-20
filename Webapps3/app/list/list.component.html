@@ -1,10 +1,21 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<h1>TEST 2</h1>
+<div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Question</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let enquiry of alleEnquiries">
+            <tr>
+                <td>{{enquiry.name}}</td>
+                <td>{{enquiry.surname}}</td>
+                <td>{{enquiry.email}}</td>
+                <td>{{enquiry.question}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

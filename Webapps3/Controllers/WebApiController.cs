@@ -14,21 +14,37 @@ namespace Webapps3.Controllers
     {
         private SpmDB db = new SpmDB();
 
-        public HttpResponseMessage Get()
+        [HttpGet]
+        public HttpResponseMessage GetFaqs()
         {
-            List<Faq> alleFaqs = db.hentAlleFaqs();
+                List<Faq> alleFaqs = db.hentAlleFaqs();
+
+                JavaScriptSerializer Json = new JavaScriptSerializer();
+                string JsonString = Json.Serialize(alleFaqs);
+
+                HttpResponseMessage respons = new HttpResponseMessage();
+                respons.Content = new StringContent(JsonString, Encoding.UTF8, "application/json");
+                respons.StatusCode = HttpStatusCode.OK;
+                return respons;
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetEnquiries()
+        {
+            List<Enquiry> alleEnquiries = db.hentAlleEnquiries();
 
             JavaScriptSerializer Json = new JavaScriptSerializer();
-            string JsonString = Json.Serialize(alleFaqs);
+            string JsonString = Json.Serialize(alleEnquiries);
 
             HttpResponseMessage respons = new HttpResponseMessage();
             respons.Content = new StringContent(JsonString, Encoding.UTF8, "application/json");
             respons.StatusCode = HttpStatusCode.OK;
             return respons;
-
         }
 
-        // POST api/webapi
+
+
+
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Enquiry innSpm)
         {

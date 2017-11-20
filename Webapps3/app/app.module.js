@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var faq_component_1 = require("./faq/faq.component");
@@ -25,7 +26,7 @@ AppModule = __decorate([
             app_component_1.AppComponent, faq_component_1.FaqComponent, form_component_1.FormComponent, list_component_1.ListComponent
         ],
         imports: [
-            platform_browser_1.BrowserModule, http_1.HttpModule, router_1.RouterModule.forRoot([
+            platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.ReactiveFormsModule, http_1.JsonpModule, router_1.RouterModule.forRoot([
                 { path: 'faq', component: faq_component_1.FaqComponent },
                 { path: 'form', component: form_component_1.FormComponent },
                 { path: 'list', component: list_component_1.ListComponent }

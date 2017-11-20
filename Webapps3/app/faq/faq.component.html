@@ -1,17 +1,17 @@
-﻿    <h1>TEST</h1>
-    <div>
-        <table class="table table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>Questions</th>
-                    <th>Answers</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let faq of alleFaqs">
-                <tr>
-                    <td>{{faq.Question}}</td>
-                    <td>{{faq.Answer}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+﻿<h1>TEST</h1>
+<div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Questions</th>
+                <th>Answers</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let faq of alleFaqs">
+            <tr>
+                <td>{{faq.question}}</td>
+                <td>{{faq.answer}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

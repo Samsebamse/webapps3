@@ -19,11 +19,9 @@ var FaqComponent = (function () {
     FaqComponent.prototype.ngOnInit = function () {
         this.hentAlleFaqs();
     };
-    FaqComponent.prototype.dropDownHandler = function () {
-    };
     FaqComponent.prototype.hentAlleFaqs = function () {
         var _this = this;
-        this._http.get("api/webapi/")
+        this._http.get("api/webapi/GetFaqs")
             .map(function (returData) {
             var JsonData = returData.json();
             return JsonData;
@@ -37,7 +35,7 @@ var FaqComponent = (function () {
                 }
             }
             ;
-        }, function (error) { return alert(error); }, function () { return console.log("ferdig get-api/kunde"); });
+        }, function (error) { return alert(error); }, function () { return console.log("ferdig get-api/faq"); });
     };
     ;
     return FaqComponent;

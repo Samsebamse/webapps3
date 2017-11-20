@@ -26,19 +26,33 @@ var FormComponent = (function () {
             question: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{10,500}")])]
         });
     }
-    FormComponent.prototype.vedSubmit = function () {
-        this.lagreFaq();
+    FormComponent.prototype.ngOnInit = function () {
     };
-    FormComponent.prototype.lagreFaq = function () {
+    FormComponent.prototype.vedSubmit = function () {
+        this.lagreSpm();
+    };
+    FormComponent.prototype.bekreft = function () {
+        this.skjema.setValue({
+            name: "",
+            surname: "",
+            email: "",
+            question: ""
+        });
+        this.bekreftelse = "Spørsmålet er sendt til kundeservice!";
+    };
+    FormComponent.prototype.lagreSpm = function () {
+        var _this = this;
         var savedEnquiry = new enquiry_1.Enquiry();
-        savedEnquiry.name = this.skjema.value.fornavn;
-        savedEnquiry.surname = this.skjema.value.etternavn;
+        savedEnquiry.name = this.skjema.value.name;
+        savedEnquiry.surname = this.skjema.value.surname;
+        savedEnquiry.email = this.skjema.value.email;
+        savedEnquiry.question = this.skjema.value.question;
         var body = JSON.stringify(savedEnquiry);
         var headers = new http_2.Headers({ "Content-Type": "application/json" });
         this._http.post("api/webapi", body, { headers: headers })
             .map(function (returData) { return returData.toString(); })
             .subscribe(function (retur) {
-            //Vis alle manuell lagt inn spørsmål!
+            _this.bekreft();
         }, function (error) { return alert(error); }, function () { return console.log("ferdig post-api/kunde"); });
     };
     ;

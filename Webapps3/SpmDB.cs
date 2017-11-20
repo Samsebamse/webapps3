@@ -9,22 +9,22 @@ namespace Webapps3
     public class SpmDB
     {
         DB db = new DB();
-        
+
+        public List<Enquiry> hentAlleEnquiries()
+        {
+            List<Enquiry> alleEnquiries = db.Enquiries.ToList();
+            return alleEnquiries;
+        }
+
         public List<Faq> hentAlleFaqs()
         {
-            List<Faq> alleFaqs = db.Faqs.Select(f => new Faq()
-            {
-                id = f.id,
-                question = f.question,
-                answer = f.answer
-            }).ToList();
-
+            List<Faq> alleFaqs = db.Faqs.ToList();
             return alleFaqs;
         }
 
         public bool lagreSpm(Enquiry innSpm)
         {
-            var nyttSpm = new Enquiry
+            Enquiry nyttSpm = new Enquiry
             {
                 name = innSpm.name,
                 surname = innSpm.surname,

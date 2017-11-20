@@ -21,12 +21,8 @@ export class FaqComponent {
         this.hentAlleFaqs();
     }
 
-    dropDownHandler(): void {
-       
-    }
-
     hentAlleFaqs() {
-        this._http.get("api/webapi/")
+        this._http.get("api/webapi/GetFaqs")
             .map(returData => {
                 let JsonData = returData.json();
                 return JsonData;
@@ -41,7 +37,7 @@ export class FaqComponent {
                 };
             },
             error => alert(error),
-            () => console.log("ferdig get-api/kunde")
+            () => console.log("ferdig get-api/faq")
             );
 
     };

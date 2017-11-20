@@ -16,7 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
     ],
 
     imports: [
-        BrowserModule, HttpModule, RouterModule.forRoot([
+        BrowserModule, HttpModule, ReactiveFormsModule, JsonpModule, RouterModule.forRoot([
             { path: 'faq', component: FaqComponent },
             { path: 'form', component: FormComponent },
             { path: 'list', component: ListComponent }
