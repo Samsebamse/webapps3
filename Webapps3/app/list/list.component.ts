@@ -6,7 +6,7 @@ import "rxjs/add/operator/map";
 import { Headers } from "@angular/http";
 
 @Component({
-    selector: "list",
+    selector: "listcomp",
     templateUrl: "/app/list/list.component.html"
 })
 

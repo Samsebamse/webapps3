@@ -1,47 +1,38 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Headers } from "@angular/http";
 import { Enquiry } from "./enquiry";
 
 @Component({
-    selector: "form",
+    selector: "formcomp",
     templateUrl: "/app/form/form.component.html"
 })
 
 export class FormComponent {
-
+    vis: boolean;
     skjema: FormGroup;
     bekreftelse: string;
 
-    constructor(private _http: Http, private fb: FormBuilder) {
+    constructor(private _http: Http, private fb: FormBuilder, private router: Router) {
         this.skjema = fb.group({
             id: [""],
             name: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
             surname: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
-            email: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
-            question: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{10,500}")])]
+            email: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-.@ ]{5,30}")])],
+            question: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-.? ]{10,500}")])]
         });
     }
-    ngOnInit() {
+    ngOnInit()
+    {
     }
 
     vedSubmit() {
-
         this.lagreSpm();
+        this.router.navigate(['/list']);
     }
 
-    bekreft() {
-
-        this.skjema.setValue({
-            name: "",
-            surname: "",
-            email: "",
-            question: ""
-        });
-
-        this.bekreftelse = "Spørsmålet er sendt til kundeservice!";
-    }
 
     lagreSpm() {
         var savedEnquiry = new Enquiry();
@@ -54,14 +45,14 @@ export class FormComponent {
         var body: string = JSON.stringify(savedEnquiry);
         var headers = new Headers({ "Content-Type": "application/json" });
 
-        this._http.post("api/webapi", body, { headers: headers })
+        this._http.post("api/webapi/SetEnquiry", body, { headers: headers })
             .map(returData => returData.toString())
             .subscribe(
             retur => {
-                this.bekreft();
+                this.router.navigate(['/list']);
             },
             error => alert(error),
-            () => console.log("ferdig post-api/kunde")
+            () => console.log("ferdig post-api/spm")
         );
 
     };

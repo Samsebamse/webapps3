@@ -22,15 +22,15 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        declarations: [
-            app_component_1.AppComponent, faq_component_1.FaqComponent, form_component_1.FormComponent, list_component_1.ListComponent
-        ],
         imports: [
-            platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.ReactiveFormsModule, http_1.JsonpModule, router_1.RouterModule.forRoot([
+            platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot([
                 { path: 'faq', component: faq_component_1.FaqComponent },
                 { path: 'form', component: form_component_1.FormComponent },
                 { path: 'list', component: list_component_1.ListComponent }
             ])
+        ],
+        declarations: [
+            app_component_1.AppComponent, faq_component_1.FaqComponent, form_component_1.FormComponent, list_component_1.ListComponent
         ],
         bootstrap: [app_component_1.AppComponent] //root component
     })

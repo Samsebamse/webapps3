@@ -16,14 +16,14 @@
             </p>
         </div>
         <div class="form-group">
-            <label>Fornavn</label>
+            <label>Epost</label>
             <input class="form-control" formControlName="email" />
             <p class="alert alert-warning" [hidden]="skjema.controls.email.valid || (skjema.controls.email.pristine && !submitted)">
                 E-post er obligatorisk.
             </p>
         </div>
         <div class="form-group">
-            <label>Fornavn</label>
+            <label>Spørsmålet</label>
             <input class="form-control" formControlName="question" />
             <p class="alert alert-warning" [hidden]="skjema.controls.question.valid || (skjema.controls.question.pristine && !submitted)">
                 Spørsmål må inneholde minst bokstaver ord.
@@ -34,3 +34,4 @@
         </div>
     </form>
 </div>
+

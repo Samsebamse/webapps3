@@ -1,6 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -11,16 +11,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
 
-    declarations: [
-        AppComponent, FaqComponent, FormComponent, ListComponent
-    ],
-
     imports: [
-        BrowserModule, HttpModule, ReactiveFormsModule, JsonpModule, RouterModule.forRoot([
+        BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, JsonpModule, RouterModule.forRoot([
             { path: 'faq', component: FaqComponent },
             { path: 'form', component: FormComponent },
             { path: 'list', component: ListComponent }
         ])
+    ],
+
+    declarations: [
+        AppComponent, FaqComponent, FormComponent, ListComponent
     ],
 
     bootstrap: [AppComponent] //root component

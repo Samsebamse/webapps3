@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -46,7 +44,7 @@ namespace Webapps3.Controllers
 
 
         [HttpPost]
-        public HttpResponseMessage Post([FromBody]Enquiry innSpm)
+        public HttpResponseMessage SetEnquiry([FromBody]Enquiry innSpm)
         {
             if (ModelState.IsValid)
             {

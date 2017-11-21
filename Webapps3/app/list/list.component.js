@@ -41,7 +41,7 @@ var ListComponent = (function () {
 }());
 ListComponent = __decorate([
     core_1.Component({
-        selector: "list",
+        selector: "listcomp",
         templateUrl: "/app/list/list.component.html"
     }),
     __metadata("design:paramtypes", [http_1.Http])

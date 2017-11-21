@@ -42,7 +42,7 @@ var FaqComponent = (function () {
 }());
 FaqComponent = __decorate([
     core_1.Component({
-        selector: "faq",
+        selector: "faqcomp",
         templateUrl: "/app/faq/faq.component.html"
     }),
     __metadata("design:paramtypes", [http_1.Http])

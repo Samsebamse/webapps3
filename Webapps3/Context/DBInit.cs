@@ -7,7 +7,7 @@ using Webapps3.Models;
 
 namespace Webapps3.Context
 {
-    public class DBInit : CreateDatabaseIfNotExists<DB>
+    public class DBInit : DropCreateDatabaseAlways<DB>
     {
         protected override void Seed(DB context)
         {
@@ -24,7 +24,6 @@ namespace Webapps3.Context
 
             base.Seed(context);
             context.SaveChanges();
-        }
-        
+        }     
     }
 }

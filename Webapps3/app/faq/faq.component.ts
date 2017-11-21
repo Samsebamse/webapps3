@@ -6,7 +6,7 @@ import "rxjs/add/operator/map";
 import { Headers } from "@angular/http";
 
 @Component({
-    selector: "faq",
+    selector: "faqcomp",
     templateUrl: "/app/faq/faq.component.html"
 })
 
