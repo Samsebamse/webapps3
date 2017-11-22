@@ -1,37 +1,35 @@
-﻿<div class="col-sm-4 col-sm-offset-2">
-    <form [formGroup]="skjema" (ngSubmit)="lagreSpm()">
-        <input class="form-control" formControlName="id" type="hidden" />
-        <div class="form-group">
-            <label>Fornavn</label>
-            <input class="form-control" formControlName="name" />
-            <p class="alert alert-warning" [hidden]="skjema.controls.name.valid || (skjema.controls.name.pristine && !submitted)">
-                Fornavn er obligatorisk.
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Etternavn</label>
-            <input class="form-control" formControlName="surname" />
-            <p class="alert alert-warning" [hidden]="skjema.controls.surname.valid || (skjema.controls.surname.pristine && !submitted)">
-                Etternavn er obligatorisk.
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Epost</label>
-            <input class="form-control" formControlName="email" />
-            <p class="alert alert-warning" [hidden]="skjema.controls.email.valid || (skjema.controls.email.pristine && !submitted)">
-                E-post er obligatorisk.
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Spørsmålet</label>
-            <input class="form-control" formControlName="question" />
-            <p class="alert alert-warning" [hidden]="skjema.controls.question.valid || (skjema.controls.question.pristine && !submitted)">
-                Spørsmål må inneholde minst bokstaver ord.
-            </p>
-        </div>
-        <div class="form-group">
-            <button type="submit" [disabled]="!skjema.valid" class="btn btn-primary">Send forespørsel</button>
-        </div>
-    </form>
-</div>
+﻿<p class="h2">Skjema for henvedelser til kunderservice</p>
+<form [formGroup]="skjema" (ngSubmit)="lagreSpm()">
+    <input class="form-control" formControlName="id" type="hidden" />
+    <div class="form-group">
+        <label>Fornavn</label>
+        <input class="form-control" formControlName="name" />
+        <p class="alert alert-warning" [hidden]="skjema.controls.name.valid || (skjema.controls.name.pristine && !submitted)">
+            Fornavn er obligatorisk.
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Etternavn</label>
+        <input class="form-control" formControlName="surname" />
+        <p class="alert alert-warning" [hidden]="skjema.controls.surname.valid || (skjema.controls.surname.pristine && !submitted)">
+            Etternavn er obligatorisk.
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Epost</label>
+        <input class="form-control" formControlName="email" />
+        <p class="alert alert-warning" [hidden]="skjema.controls.email.valid || (skjema.controls.email.pristine && !submitted)">
+            E-post er obligatorisk.
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Spørsmålet</label>
+        <textarea class="form-control alert alert-warning" formControlName="question" rows="5" id="Question" [hidden]="skjema.controls.question.valid || (skjema.controls.question.pristine && !submitted)">
+            Spørsmål må inneholde minst bokstaver ord.
+        </textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="!skjema.valid" class="btn btn-primary">Send forespørsel</button>
+    </div>
+</form>
 

@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { Http, Response } from '@angular/http';
 import { Faq } from "./faq";
+import { AccordionModule } from "ngx-accordion";
 
 import "rxjs/add/operator/map";
 import { Headers } from "@angular/http";
@@ -12,10 +13,11 @@ import { Headers } from "@angular/http";
 
 export class FaqComponent {
 
+    tittel: string;
     alleFaqs: Array<Faq>;
 
     constructor(private _http: Http) {
-
+        this.tittel = "Ofte spurte spørsmål fra kunder";
     }
     ngOnInit(): void {
         this.hentAlleFaqs();

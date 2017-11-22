@@ -1,20 +1,24 @@
-﻿<div class="col-sm-4 col-sm-offset-2">
-    <table class="table table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Question</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let enquiry of alleEnquiries">
-            <tr>
-                <td>{{enquiry.name}}</td>
-                <td>{{enquiry.surname}}</td>
-                <td>{{enquiry.email}}</td>
-                <td>{{enquiry.question}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+﻿<p class="h2">Spørsmål sendt inn fra kunder</p>
+
+<accordion [showArrows]="true">
+    <accordion-group *ngFor="let enquiry of alleEnquiries" heading={{enquiry.question}}>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{enquiry.name}}</td>
+                    <td>{{enquiry.surname}}</td>
+                    <td>{{enquiry.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </accordion-group>
+</accordion>
+
+

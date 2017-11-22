@@ -2,7 +2,7 @@
 import { Router } from '@angular/router' 
 
 @Component({
-    selector: "app",
+    selector: "appcomp",
     templateUrl: "./app/app.component.html"
 })
 

@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { AccordionModule } from "ngx-accordion";
 
 import { AppComponent } from './app.component';
 import { FaqComponent } from './faq/faq.component';
@@ -12,7 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 @NgModule({
 
     imports: [
-        BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, JsonpModule, RouterModule.forRoot([
+        BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, JsonpModule, AccordionModule, RouterModule.forRoot([
             { path: 'faq', component: FaqComponent },
             { path: 'form', component: FormComponent },
             { path: 'list', component: ListComponent }
