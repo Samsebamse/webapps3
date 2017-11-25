@@ -12,10 +12,12 @@ import { Headers } from "@angular/http";
 
 export class ListComponent {
 
+    tittel: string;
     alleEnquiries: Array<Enquiry>;
 
-    constructor(private _http: Http) {
 
+    constructor(private _http: Http) {
+        this.tittel = "Spørsmål sendt inn fra kunder";
     }
     ngOnInit(): void {
         this.hentAlleEnquiries();

@@ -15,6 +15,7 @@ require("rxjs/add/operator/map");
 var ListComponent = (function () {
     function ListComponent(_http) {
         this._http = _http;
+        this.tittel = "Spørsmål sendt inn fra kunder";
     }
     ListComponent.prototype.ngOnInit = function () {
         this.hentAlleEnquiries();
