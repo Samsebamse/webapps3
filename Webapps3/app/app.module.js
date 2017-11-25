@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var ngx_accordion_1 = require("ngx-accordion");
+var ngx_filter_pipe_1 = require("ngx-filter-pipe");
 var app_component_1 = require("./app.component");
 var faq_component_1 = require("./faq/faq.component");
 var form_component_1 = require("./form/form.component");
@@ -24,7 +25,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
-            platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.HttpModule, http_1.JsonpModule, ngx_accordion_1.AccordionModule, router_1.RouterModule.forRoot([
+            platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.HttpModule, http_1.JsonpModule, ngx_accordion_1.AccordionModule, ngx_filter_pipe_1.FilterPipeModule, router_1.RouterModule.forRoot([
                 { path: 'faq', component: faq_component_1.FaqComponent },
                 { path: 'form', component: form_component_1.FormComponent },
                 { path: 'list', component: list_component_1.ListComponent }

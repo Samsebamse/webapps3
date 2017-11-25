@@ -29,6 +29,7 @@ var FormComponent = (function () {
         });
     }
     FormComponent.prototype.ngOnInit = function () {
+        this.tittel = "Skjema for henvedelser til kunderservice";
     };
     FormComponent.prototype.vedSubmit = function () {
         this.lagreSpm();

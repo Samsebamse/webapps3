@@ -11,10 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var app_component_1 = require("../app.component");
 require("rxjs/add/operator/map");
 var FaqComponent = (function () {
-    function FaqComponent(_http) {
+    function FaqComponent(_http, appcomponent) {
         this._http = _http;
+        this.appcomponent = appcomponent;
+        this.rxjsComplete = false;
+        this.userInput = { question: '' };
         this.tittel = "Ofte spurte spørsmål fra kunder";
     }
     FaqComponent.prototype.ngOnInit = function () {
@@ -33,6 +37,7 @@ var FaqComponent = (function () {
                 for (var _i = 0, JsonData_1 = JsonData; _i < JsonData_1.length; _i++) {
                     var faqObjekt = JsonData_1[_i];
                     _this.alleFaqs.push(faqObjekt);
+                    _this.rxjsComplete = true;
                 }
             }
             ;
@@ -46,7 +51,7 @@ FaqComponent = __decorate([
         selector: "faqcomp",
         templateUrl: "/app/faq/faq.component.html"
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, app_component_1.AppComponent])
 ], FaqComponent);
 exports.FaqComponent = FaqComponent;
 //# sourceMappingURL=faq.component.js.map

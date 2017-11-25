@@ -11,7 +11,7 @@ import { Enquiry } from "./enquiry";
 })
 
 export class FormComponent {
-    vis: boolean;
+    tittel: string;
     skjema: FormGroup;
     bekreftelse: string;
 
@@ -26,6 +26,7 @@ export class FormComponent {
     }
     ngOnInit()
     {
+        this.tittel = "Skjema for henvedelser til kunderservice";
     }
 
     vedSubmit() {

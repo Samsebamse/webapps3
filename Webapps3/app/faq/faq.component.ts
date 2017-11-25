@@ -2,6 +2,8 @@
 import { Http, Response } from '@angular/http';
 import { Faq } from "./faq";
 import { AccordionModule } from "ngx-accordion";
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { AppComponent } from '../app.component';
 
 import "rxjs/add/operator/map";
 import { Headers } from "@angular/http";
@@ -13,10 +15,12 @@ import { Headers } from "@angular/http";
 
 export class FaqComponent {
 
+    rxjsComplete = false;
     tittel: string;
     alleFaqs: Array<Faq>;
+    userInput: any = { question: '' };
 
-    constructor(private _http: Http) {
+    constructor(private _http : Http, private appcomponent : AppComponent) {
         this.tittel = "Ofte spurte spørsmål fra kunder";
     }
     ngOnInit(): void {
@@ -35,6 +39,7 @@ export class FaqComponent {
                 if (JsonData) {
                     for (let faqObjekt of JsonData) {
                         this.alleFaqs.push(faqObjekt);
+                        this.rxjsComplete = true;
                     }
                 };
             },

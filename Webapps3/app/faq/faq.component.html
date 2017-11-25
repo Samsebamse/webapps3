@@ -1,6 +1,28 @@
-﻿<p class="h2">Ofte spurte spørsmål fra kunder</p>
+﻿<p class="h2">{{tittel}}</p>
+
+<div *ngIf="rxjsComplete == true" class="input-group">
+    <input type="text" [(ngModel)]="userInput.question" class="form-control" placeholder="Søk her" aria-describedby="basic-addon1">
+</div>
+<br />
+
 <accordion [showArrows]="true">
-    <accordion-group *ngFor="let faq of alleFaqs" heading={{faq.question}}>
+    <accordion-group *ngFor="let faq of alleFaqs | filterBy: userInput" heading={{faq.question}}>
         {{faq.answer}}
     </accordion-group>
 </accordion>
+
+<br />
+<br />
+<br />
+<div *ngIf="rxjsComplete == false">
+    <div id="cssload-pgloading">
+        <div class="cssload-loadingwrap">
+            <ul class="cssload-bokeh">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -23,7 +23,12 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-            "ngx-accordion": "node_modules/ngx-accordion",
+
+            //ngx accordion
+            'ngx-accordion': 'node_modules/ngx-accordion',
+            //ngx pipe
+            'ngx-filter-pipe': 'node_modules/ngx-filter-pipe',
+
             // other libraries
             'rxjs': 'npm:rxjs',
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api'
@@ -31,8 +36,15 @@
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
 
-            
-            "ngx-accordion": { "main": "index.js", "defaultExtension": "js" },
+            'ngx-filter-pipe': {
+                main: 'dist/bundles/ngx-filter-pipe.umd.js'
+            },
+
+            'ngx-accordion': {
+                main: 'index.js',
+                defaultExtension: 'js'
+            },
+
             app: {
                 main: './main.js',
                 defaultExtension: 'js'
