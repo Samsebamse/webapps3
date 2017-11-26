@@ -24,8 +24,8 @@ var FormComponent = (function () {
             id: [""],
             name: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
             surname: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
-            email: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-.@ ]{5,30}")])],
-            question: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[a-zA-ZøæåØÆÅ\\-.? ]{10,500}")])]
+            email: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[a-z0-9æøå'*+/=?^_`{|}~-]+(?:\.[a-z0-9æøå'*+/=?^_`{|}~-]+)*@(?:[a-z0-9æøå](?:[a-z0-9æøå]*[a-z0-9æøå])?\.)+[a-z0-9æøå](?:[a-z0-9æøå]*[a-z0-9æøå])+")])],
+            question: [null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{0,500}")])]
         });
     }
     FormComponent.prototype.ngOnInit = function () {

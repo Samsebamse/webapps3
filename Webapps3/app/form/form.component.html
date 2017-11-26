@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label>Spørsmålet</label>
-        <textarea class="form-control alert alert-warning" formControlName="question" rows="5" id="Question" [hidden]="skjema.controls.question.valid || (skjema.controls.question.pristine && !submitted)">
+        <textarea class="form-control" formControlName="question" rows="5" id="Question" [hidden]="skjema.controls.question.valid || (skjema.controls.question.pristine && !submitted)">
             Spørsmål må inneholde minst bokstaver ord.
         </textarea>
     </div>
@@ -32,4 +32,3 @@
         <button type="submit" [disabled]="!skjema.valid" class="btn btn-primary">Send forespørsel</button>
     </div>
 </form>
-

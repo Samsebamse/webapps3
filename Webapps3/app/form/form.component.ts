@@ -20,8 +20,8 @@ export class FormComponent {
             id: [""],
             name: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
             surname: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
-            email: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-.@ ]{5,30}")])],
-            question: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-.? ]{10,500}")])]
+            email: [null, Validators.compose([Validators.required, Validators.pattern("[a-z0-9æøå'*+/=?^_`{|}~-]+(?:\.[a-z0-9æøå'*+/=?^_`{|}~-]+)*@(?:[a-z0-9æøå](?:[a-z0-9æøå]*[a-z0-9æøå])?\.)+[a-z0-9æøå](?:[a-z0-9æøå]*[a-z0-9æøå])+")])],
+            question: [null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{0,500}")])]
         });
     }
     ngOnInit()
