@@ -93,8 +93,6 @@
     <Content Include="app\faq\faqstyle.css" />
     <Content Include="app\form\form.component.html" />
     <Content Include="app\list\list.component.html" />
-    <Content Include="App_Data\Kundeservicedb.mdf" />
-    <Content Include="App_Data\Kundeservicedb_log.ldf" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="systemjs.config.js" />
@@ -127,7 +125,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />

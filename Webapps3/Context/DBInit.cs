@@ -9,6 +9,7 @@ namespace Webapps3.Context
 {
     public class DBInit : DropCreateDatabaseAlways<DB>
     {
+
         protected override void Seed(DB context)
         {
             AddFaqs(context);
@@ -20,7 +21,6 @@ namespace Webapps3.Context
             context.Faqs.Add(new Faq() { question = "Får barn lavere priser?", answer = "Selvfølelig" });
             context.Faqs.Add(new Faq() { question = "Hva er aldersgrensen for å fly alene uten medfølger?", answer = "18år" });
 
-            context.SaveChanges();
             base.Seed(context);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using Webapps3.Models;
 
@@ -24,6 +25,12 @@ namespace Webapps3
 
         public bool lagreSpm(Enquiry innSpm)
         {
+
+            if (!Epost_ok(innSpm.email))
+            {
+                return false;
+            }
+
             Enquiry nyttSpm = new Enquiry
             {
                 name = innSpm.name,
@@ -42,6 +49,20 @@ namespace Webapps3
                 return false;
             }
             return true;
+        }
+
+        public bool Epost_ok(string innEpost)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(innEpost);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }
